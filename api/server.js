@@ -11,10 +11,10 @@ const server = express();
 
 configureMiddleware(server);
 
-server.use("/api/userprofile", usersRouter);
+server.use("/user", usersRouter);
 
 server.get('/', (req, res) => {
-    res.send(`<h1>Welcome to the app!</h1>`);
+    res.send(`<h1>Welcome to the app!!!</h1>`);
 });
 
 server.get('*', (req, res) => {
