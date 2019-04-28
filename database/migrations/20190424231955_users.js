@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('users', users => {
     users.increments();
 
-    // users.timestamps(true, true);
+    users.timestamps(true, true);
 
     users.string('username', 128)
         .notNullable()
@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
     users.string('password', 128)
         .notNullable();
 
-    users.string('')
+    users.string('avatar')
   })
 };
 

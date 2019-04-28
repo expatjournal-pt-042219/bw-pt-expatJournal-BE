@@ -1,9 +1,20 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('photos', photos =>{
+  return knex.schema.createTable('photos', photos => {
       photos.increments();
 
-      photos.string('created_at', 128);
+      photos.integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
+
+      photos.timestamps(true, true);
+
+    //   photos.string('created_at', 128);
+
+      photos.integer('likes').defaultTo(0);
 
       photos.string('title', 128)
 
