@@ -8,10 +8,12 @@ exports.up = function(knex, Promise) {
 
     location.string('country')
         .notNullable()
-        
+
   })
 };
 
 exports.down = function(knex, Promise) {
-  
+  return knex.schema.dropTableIfExists('location')
+
+  // wondering if I should use 
 };
