@@ -11,3 +11,5 @@ yarn-error.log*
 
 # secret 
 secrets/secrets.js
+
+secret/secret.js
