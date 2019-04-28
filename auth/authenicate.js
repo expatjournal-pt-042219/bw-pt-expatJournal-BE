@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 const { jwtKey } = require('../secrets/secrets');
 
 module.exports = {
-    authenicate
+    authenticate
 };
 
-const authenicate = (req, res, next) => {
+const authenticate = (req, res, next) => {
     const token = req.get('Authorization');
 
     if (token) {
