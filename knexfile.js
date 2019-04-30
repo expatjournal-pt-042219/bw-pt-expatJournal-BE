@@ -5,8 +5,8 @@ const localPgConnection = {
   database: "expatJournal",
   // need to know credentials
   user: "lambdaStudent",
-  password: "password"
-}
+  password: "password",
+};
 
 const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
 
@@ -45,7 +45,7 @@ module.exports = {
     // connection can be object or string
     connection: prodDbConnection,
     migrations: {
-      tableName: './database/migrations',
+      directory: './database/migrations',
     },
     seeds: {
       directory: './database/seeds',
