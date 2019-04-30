@@ -5,8 +5,8 @@ const localPgConnection = {
   database: "expatJournal",
   // need to know credentials
   user: "lambdaStudent",
-  password: "password"
-}
+  password: "password",
+};
 
 const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
 
