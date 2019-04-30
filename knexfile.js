@@ -45,7 +45,7 @@ module.exports = {
     // connection can be object or string
     connection: prodDbConnection,
     migrations: {
-      tableName: './database/migrations',
+      directory: './database/migrations',
     },
     seeds: {
       directory: './database/seeds',
