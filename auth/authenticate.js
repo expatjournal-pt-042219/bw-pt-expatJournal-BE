@@ -2,9 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const { jwtKey } = require('../secret/secret');
 
-module.exports = {
-    authenticate
-};
+
 
 const authenticate = (req, res, next) => {
     const token = req.get('Authorization');
@@ -24,3 +22,7 @@ const authenticate = (req, res, next) => {
         });
     }
 }
+
+module.exports = {
+    authenticate
+};
