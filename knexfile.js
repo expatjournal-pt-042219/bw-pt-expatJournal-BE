@@ -1,14 +1,14 @@
 // Update with your config settings.
 
-const localPgConnection = {
-  host: "localhost",
-  database: "expatJournal",
-  // need to know credentials
-  user: "lambdaStudent",
-  password: "password",
-};
+// const localPgConnection = {
+//   host: "localhost",
+//   database: "expatJournal",
+//   // need to know credentials
+//   user: "lambdaStudent",
+//   password: "password",
+// };
 
-const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
+// const prodDbConnection = process.env.DATABASE_URL || localPgConnection;
 
 module.exports = {
 
@@ -43,7 +43,7 @@ module.exports = {
   production: {
     client: 'pg',
     // connection can be object or string
-    connection: prodDbConnection,
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './database/migrations',
     },
