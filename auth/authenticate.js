@@ -13,7 +13,7 @@ const authenticate = (req, res, next) => {
             return res.status(401).json(err);
 
             req.decoded = decoded;
-
+            // req.decodedJwt = decoded;
             next();
         });
     } else {
