@@ -41,10 +41,14 @@ module.exports = {
 
   production: {
     client: 'pg',
+    // connection can be object or string
     connection: prodDbConnection,
     migrations: {
       tableName: './database/migrations',
-    }
+    },
+    seeds: {
+      directory: './database/seeds',
+    },
   }
 
 
