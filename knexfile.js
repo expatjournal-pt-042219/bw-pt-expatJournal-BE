@@ -17,7 +17,17 @@ module.exports = {
   },
 
   testing: {
-
+    client: 'sqlite3',
+    connection: {
+      filename: './database/expatJournal.sqlite3'
+    },
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations',
+    },
+    seeds: {
+      directory: './database/seeds',
+    },
   },
 
   // production: {
