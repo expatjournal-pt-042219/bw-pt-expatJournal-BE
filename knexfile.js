@@ -2,7 +2,7 @@
 
 const localPgConnection = {
   host: "localhost",
-  database: "expatJournel",
+  database: "expatJournal",
   user: "lambdaStudent",
   password: "password"
 }
