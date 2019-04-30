@@ -3,6 +3,7 @@
 const localPgConnection = {
   host: "localhost",
   database: "expatJournal",
+  // need to know credentials
   user: "lambdaStudent",
   password: "password"
 }
