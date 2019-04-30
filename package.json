@@ -10,6 +10,9 @@
     "server": "nodemon index.js",
     "start": "node index.js"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
