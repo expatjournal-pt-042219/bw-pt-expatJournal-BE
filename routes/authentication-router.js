@@ -8,11 +8,6 @@ const { authenticate } = require('../auth/authenticate');
 const Users = require('../models/user-model');
 const { jwtKey } = require('../secret/secret');
 
-// module.exports = server => {
-//     server.post('/register', register)
-//     server.post('/login', login)
-// }
-
 // const server = express.Router();
 
 function generateToken(user) {
@@ -30,23 +25,25 @@ function generateToken(user) {
 router.post('/api/register', (req, res) => {
     let user = req.body;
 console.log('req.body', user)
-    // if(!username || !password) {
-    //     res.status(400).json({ message: "Please provide username and password to register"})
+    if(!user.username || !user.password) {
+        res.status(400).json({ message: "Please provide username and password to register"})
    
-    // } else {
+    }
+     else {
     const hash = bcrypt.hashSync(user.password, 10)
     user.password = hash;
 
     Users.add(user)
         .then(saveUser => {
+            user.id = user_id;
             const token = generateToken(user)
-            res.status(201).json({saveUser, token})
+            res.status(201).json({user_id: user_id, token: token})
         }).catch(error => {
             res.status(500).json({message: "There was an error registering the user"})
             console.log(error)
         })
                 
-    // }
+    }
 });
 
 router.post('/api/login', (req, res) => {
