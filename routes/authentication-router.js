@@ -35,8 +35,9 @@ console.log('req.body', user)
 
     Users.add(user)
         .then(saveUser => {
+            user.id = user_id;
             const token = generateToken(user)
-            res.status(201).json({saveUser, token})
+            res.status(201).json({user_id: user_id, token: token})
         }).catch(error => {
             res.status(500).json({message: "There was an error registering the user"})
             console.log(error)
