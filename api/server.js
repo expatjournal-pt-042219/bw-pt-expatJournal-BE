@@ -6,12 +6,14 @@ const middleware = require('./middleware');
 
 // add routes (from the auth folder) here (authorized route, user routes, etc.)
 const usersRouter = require('../routes/user-router');
-
+const authRouter = require('../routes/authentication-router');
 const server = express();
 
 middleware(server);
 
+
 server.use("/user", usersRouter);
+server.use(authRouter)
 
 server.get('/', (req, res) => {
     res.send(`<h1>Welcome to the app!!!</h1>`);
