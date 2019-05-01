@@ -9,23 +9,7 @@ const { authenticate } = require('../auth/authenticate');
 const router = express.Router();
 
 
-// router.get('/:id', authenticate, (req, res) => {
-//     const { id } = req.params;
-//     Users.findById(id)
-//     .then(user => {
-//         if(!user){
-//             res.status(404).json({message: `User not found!`})
-//         } else {
-//             res.status(200).json(user)
-//         }
-//     })
-//     .catch(err => {
-//         console.log(err)
-//         return err;
-//     })
-// })
-
-router.get('/:id',  (req, res) => {
+router.get('/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Users.findById(id)
     .then(user => {
@@ -40,6 +24,22 @@ router.get('/:id',  (req, res) => {
         return err;
     })
 })
+
+// router.get('/:id',  (req, res) => {
+//     const { id } = req.params;
+//     Users.findById(id)
+//     .then(user => {
+//         if(!user){
+//             res.status(404).json({message: `User not found!`})
+//         } else {
+//             res.status(200).json(user)
+//         }
+//     })
+//     .catch(err => {
+//         console.log(err)
+//         return err;
+//     })
+// })
 
 
 
