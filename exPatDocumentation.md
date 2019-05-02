@@ -59,7 +59,7 @@
 
 ### https://expat-lambda.herokuapp.com/api/user/posts/:id
 
-## Post related endpoints
+## User Posts related endpoints
 
 a `GET` request to this route will return a single post by post id
 
