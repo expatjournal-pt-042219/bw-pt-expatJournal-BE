@@ -45,4 +45,17 @@ router.put('/:id', authenticate, (req, res) => {
     })
 })
 
+router.delete('/:id', authenticate, (req, res) => {
+    const { id } = req.params;
+    
+    Posts.removePost(id)
+    .then(deletePost => {
+        res.status(200).json(deletePost)
+    })
+    .catch(error => {
+        res.status(500).json({message: "could not delete post"})
+    })
+
+})
+
 module.exports = router;

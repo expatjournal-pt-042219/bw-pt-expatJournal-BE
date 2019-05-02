@@ -28,7 +28,7 @@ function findById(id) {
 
 function findByPostId(id) {
     return db('posts')
-    .leftJoin('users', 'users.user_id', 'posts.id')
+    .leftJoin('users', 'user_id', 'posts.posts.id')
     // .select( [ "posts.*", "users.username" ] )
     .where('posts.id', id)
     .first();
@@ -48,7 +48,7 @@ async function addPost(post) {
 }
 
 function removePost(id) {
-return db('posts').where({ id }).del();
+return db('posts').where('id', id).del();
 }
 
 async function updatePost(id, changes) {
