@@ -19,7 +19,7 @@ router.post('/', authenticate, (req, res) => {
     })
 })
 
-router.get('/:id',  (req, res) => {
+router.get('/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Posts.findByPostId(id)
 
@@ -31,7 +31,7 @@ router.get('/:id',  (req, res) => {
     });
 })
 
-router.put('/:id',  (req, res) => {
+router.put('/:id', authenticate, (req, res) => {
     const { id } = req.params;
     const post = req.body;
 
