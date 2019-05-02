@@ -28,8 +28,9 @@ function findById(id) {
 
 function findByPostId(id) {
     return db('posts')
-    .innerJoin('users', 'users.user_id', 'user.id')
-    .where('user.id', id)
+    .leftJoin('users', 'users.user_id', 'posts.id')
+    // .select( [ "posts.*", "users.username" ] )
+    .where('posts.id', id)
     .first();
 }
 
