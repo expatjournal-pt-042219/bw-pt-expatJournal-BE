@@ -9,7 +9,7 @@ const { authenticate } = require('../auth/authenticate');
 const router = express.Router();
 
 
-router.get('/:id',  (req, res) => {
+router.get('/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Users.findById(id)
     .then(user => {
@@ -26,7 +26,7 @@ router.get('/:id',  (req, res) => {
     })
 })
 
-router.get('/posts/:id', (req, res) => {
+router.get('/posts/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Posts.findAllPostsByUser(id)
     .then(posts => {
