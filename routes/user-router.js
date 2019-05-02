@@ -21,9 +21,25 @@ router.get('/:id', authenticate, (req, res) => {
     })
     .catch(err => {
         console.log(err)
-        return err;
+        // return err;
+        res.status(500).json({ message: 'error checking for user'})
     })
 })
+
+router.get('/posts/:id', authenticate, (req, res) => {
+    const { id } = req.params;
+    Posts.findAllPostsByUser(id)
+    .then(posts => {
+        if(!posts){
+            res.status(404).json({message: "this user has no posts or you forgot to enter the user id number"})
+        } else {
+            res.status(200).json(posts)
+        }
+    })
+    .catch(err => {
+        console.log('get all users posts error', err)
+    })
+});
 
 
 

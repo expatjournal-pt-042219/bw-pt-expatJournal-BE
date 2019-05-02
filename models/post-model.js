@@ -2,7 +2,7 @@
 const db = require('../database/dbConfig');
 
 module.exports = {
-    findAllPosts,
+    findAllPostsByUser,
     findByPost,
     findByPostId,
     findPostByUsername,
@@ -11,17 +11,24 @@ module.exports = {
     removePost
 }
 
-function findAllPosts() {
-    return db('posts')
+function findAllPostsByUser(id) {
+    return db('posts').where({user_id: id})
 }
+
 
 function findByPost (filter) {
     return db('posts').where(filter)
 }
 
+function findById(id) {
+    return db('posts')
+    .where({ id })
+    .first();
+}
+
 function findByPostId(id) {
     return db('posts')
-    .innerJoin('users', 'user_id', 'user.id')
+    .innerJoin('users', 'users.user_id', 'user.id')
     .where('user.id', id)
     .first();
 }
@@ -36,7 +43,7 @@ function findPostByUsername(userName) {
 
 async function addPost(post) {
     const [id] = await db('posts').insert(post, "id")
-    return findByPostId(post)
+    return findById(id)
 }
 
 function removePost(id) {
