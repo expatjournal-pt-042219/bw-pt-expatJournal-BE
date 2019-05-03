@@ -7,6 +7,7 @@ const { jwtKey } = require('../secret/secret');
 const authenticate = (req, res, next) => {
     // const token = req.get('Authorization');
     const token = req.headers.authorization;
+    
     // console.log(req)
     console.log(req.headers.authorization)
     if (token) {

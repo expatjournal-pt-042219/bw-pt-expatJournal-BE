@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.get('/:id', authenticate, (req, res) => {
     const { id } = req.params;
+
     Users.findById(id)
     .then(user => {
         if(!user){
@@ -29,6 +30,8 @@ router.get('/:id', authenticate, (req, res) => {
 router.get('/posts/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Posts.findAllPostsByUser(id)
+    // const decodedtoken =  req.decodedJwt
+    // console.log("decodedtoken", decodedtoken)
     .then(posts => {
         if(!posts){
             res.status(404).json({message: "this user has no posts or you forgot to enter the user id number"})
@@ -41,7 +44,26 @@ router.get('/posts/:id', authenticate, (req, res) => {
     })
 });
 
-
+// router.get('/posts/:id', authenticate, (req, res) => {
+//     // const { id } = req.params;
+//     const { id } = req.decodedJwt.subject
+    
+//     Posts.findAllPostsByUser(id)
+//     // const decodedtoken =  req.decodedJwt.subject
+//     // console.log(decodedtoken)
+//     // console.log(req.params)
+//     console.log(id)
+//     .then(posts => {
+//         if(!posts){
+//             res.status(404).json({message: "this user has no posts or you forgot to enter the user id number"})
+//         } else {
+//             res.status(200).json(posts)
+//         }
+//     })
+//     .catch(err => {
+//         console.log('get all users posts error', err)
+//     })
+// });
 
 
 

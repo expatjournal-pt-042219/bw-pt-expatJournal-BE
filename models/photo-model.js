@@ -27,7 +27,7 @@ function findByPhoto (filter) {
 
 function findByUserId(id) {
     return db('photos')
-    .leftJoin('users', 'users.user_id', 'photos.photos.id')
+    .leftJoin('users', 'user_id', 'photos.id')
     .where('photos.id', id)
     .first();
 }
@@ -45,3 +45,4 @@ async function updatePhoto(id, changes) {
      await db('photos').where({ id }).update(changes)
      return db('photos').where({ id }).first()
 }
+

@@ -27,22 +27,28 @@ function findById(id) {
     .first();
 }
 
+// perfect do not touch 
 function findByUserId(id) {
     return db('posts')
-    .leftJoin('users', 'users.user_id', 'posts.posts.id')
-    // .select( [ "posts.*", "users.username" ] )
-    .where('posts.id', id)
+    .leftJoin('users', 'users.id',  'posts.id')
+    .select( [ "posts.*", 'user_id'] )
+    // .where('posts.id', id)
+    .where({user_id: id})
     .first();
 }
+
 
 function findByPostId(id) {
     return db('posts')
-    .leftJoin('users', 'users.user_id', 'posts.posts.id')
-    // .select( [ "posts.*", "users.username" ] )
+    .leftJoin('users', 'users.id',  'posts.id')
+    .select( [ "posts.*", 'user_id'] )
     .where('posts.id', id)
+    // .where({user_id: id})
     .first();
 }
 
+
+// unsure if this will work 
 function findPostByUsername(userName) {
     return db('posts')
     .select('users_id', 'users.username')
@@ -51,8 +57,13 @@ function findPostByUsername(userName) {
 }
 
 async function addPost(post) {
-    const [id] = await db('posts').insert(post, "id")
+    const [id] = await db('posts')
+    .insert(post, "id")
+    // .leftJoin('users', 'user_id')
+    // .select( [ "posts.*", "users.username" ] )
+    // .where({'post_id': id})
     return findById(id)
+    
 }
 
 function removePost(id) {

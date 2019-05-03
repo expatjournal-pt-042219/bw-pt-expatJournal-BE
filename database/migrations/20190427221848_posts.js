@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
             .onDelete('CASCADE')
             .onUpdate('CASCADE')
 
+
         posts.timestamps(true, true);
 
         // posts.string('created_at', 128);
