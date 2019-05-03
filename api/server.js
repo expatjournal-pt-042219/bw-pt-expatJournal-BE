@@ -15,6 +15,7 @@ middleware(server);
 
 server.use("/api/user", usersRouter);
 server.use("/api/posts", postsRouter);
+// server.use('/api/photos', photosRouter);
 // server.use("/api/comment", commentsRouter);
 server.use(authRouter)
 
