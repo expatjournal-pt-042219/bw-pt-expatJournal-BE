@@ -43,8 +43,6 @@ function findByPostId(id) {
     .first();
 }
 
-
-// unsure if this will work 
 function findPostByUsername(userName) {
     return db('posts')
     .select('users_id', 'users.username')

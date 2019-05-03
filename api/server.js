@@ -6,6 +6,7 @@ const middleware = require('./middleware');
 // add routes (from the auth folder) here (authorized route, user routes, etc.)
 const usersRouter = require('../routes/user-router');
 const postsRouter = require('../routes/posts-router');
+const photosRouter = require('../routes/photos-router');
 const authRouter = require('../routes/authentication-router');
 const server = express();
 
