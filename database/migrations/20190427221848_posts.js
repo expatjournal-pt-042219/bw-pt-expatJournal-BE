@@ -13,8 +13,6 @@ exports.up = function(knex, Promise) {
 
         posts.timestamps(true, true);
 
-        // posts.string('created_at', 128);
-
         posts.integer('likes').defaultTo(0);
   
         posts.string('title', 128)
