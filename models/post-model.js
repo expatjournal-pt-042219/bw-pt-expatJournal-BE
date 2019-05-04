@@ -34,7 +34,7 @@ function findByUserId(id) {
     .select( [ "posts.*", 'user_id'] )
     // .where('posts.id', id)
     .where({user_id: id})
-    .first();
+    // .first();
 }
 
 

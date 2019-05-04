@@ -45,6 +45,7 @@ router.get('/photoId/:id', authenticate, (req, res) => {
         res.status(200).json(getPhoto)
     }) 
     .catch(error => {
+        console.log('photo id error', error)
         res.status(500).json({message: 'could not locate photo'})
     })
 })

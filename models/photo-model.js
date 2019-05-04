@@ -36,16 +36,16 @@ function findById(id) {
 
 function findByUserId(id) {
     return db('photos')
-    .leftJoin('users', 'user.id', 'photos.id')
-    .select([ "posts.*, 'user_id"])
-    .where('photos.id', id)
-    .first();
+    .leftJoin('users', 'users.id', 'photos.id')
+    .select([ "photos.*", "user_id"])
+    .where({user_id: id})
+    // .first();
 }
 
 function findByPhotoId(id) {
     return db('photos')
     .leftJoin('users', 'users.id', 'photos.id')
-    ,select(['photos.*', 'user_id'])
+    .select([ "photos.*", 'user_id' ])
     .where('photos.id', id)
     .first();
 }
