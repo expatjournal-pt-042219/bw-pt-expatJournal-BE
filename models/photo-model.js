@@ -39,7 +39,6 @@ function findByUserId(id) {
     .leftJoin('users', 'users.id', 'photos.id')
     .select([ "photos.*", "user_id"])
     .where({user_id: id})
-    // .first();
 }
 
 function findByPhotoId(id) {
