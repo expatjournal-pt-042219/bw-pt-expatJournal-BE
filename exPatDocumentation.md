@@ -39,6 +39,21 @@
         "photo_url": "www.photoexPat.com/photo"
   }
 ```
+
+- A comment for a post or photo has this basic format: 
+
+```js
+{
+        "id": 3,
+        "created_at": "2019-05-06 01:19:49",
+        "updated_at": "2019-05-06 01:19:49",
+        "comment": "hello, nice pic",
+        "user_id": 4,
+        "post_id": 1,
+        "photo_id": null
+    }
+ ``` 
+ 
 ## Registration and Login
 
 - To register a user on the app, you need to make a `POST` request to this route, which will return the username and password.
@@ -58,6 +73,10 @@
 - a `GET` request to return a list of all user posts by user id
 
 ### https://expat-lambda.herokuapp.com/api/user/posts/:id
+
+a `GET` request to this route will return a single photo by user id
+
+### https://expat-lambda.herokuapp.com/api/user/photos/:id
 
 ## User Posts related endpoints
 
@@ -79,9 +98,7 @@ a `DELETE` request to this route will delete the post with the specified id.
 
 ## User Photos related endpoints
 
-a `GET` request to this route will return a single photo by user id
 
-### https://expat-lambda.herokuapp.com/api/user/photos/:id
 
 a `POST` request to this route with the title, description and photo url will create a new photo. The response from the server will be like the above example of a user photo. 
 
