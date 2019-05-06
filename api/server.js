@@ -8,6 +8,7 @@ const middleware = require('./middleware');
 const usersRouter = require('../routes/user-router');
 const postsRouter = require('../routes/posts-router');
 const photosRouter = require('../routes/photos-router');
+const commentsRouter = require('../routes/comment-router');
 const authRouter = require('../routes/authentication-router');
 const server = express();
 
@@ -25,7 +26,7 @@ var allowCrossDomain = function(req, res, next) {
 server.use("/api/user", usersRouter);
 server.use("/api/posts", postsRouter);
 server.use('/api/photos', photosRouter);
-// server.use("/api/comment", commentsRouter);
+server.use("/api/comments", commentsRouter);
 server.use(authRouter)
 
 server.get('/', (req, res) => {

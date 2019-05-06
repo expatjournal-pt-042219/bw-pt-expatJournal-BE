@@ -1,33 +1,44 @@
-const db = require('../database/dbConfig')
+const express  = require('express');
+const axios = require('axios');
 
-module.exports = {
-    findAllCommentsByUser,
-    findByComment,
-    findById,
-    findByUserId,
-    findByCommentId,
-    addComment,
-    deleteComment,
-    updateComment
-}
+const Users = require('../models/user-model');
+const Posts = require('../models/post-model');
+const Photos = require('../models/photo-model');
+const Comments = require('../models/comment-model');
 
-function findAllCommentsByUser(id){
-    return db('comments').where({'user_id': id});
-}
+const { authenticate } = require('../auth/authenticate');
 
-function findByComment(filter) {
-    return db('comments').where(filter)
-}
+const router = express.Router();
 
-function findById(id) {
-    return db('comments')
-    .where({ id })
-    .first();
-}
+router.post('/', authenticate, (req, res) => {
+    const comment = req.body;
+    Comments.addComment(comment)
+    .then(newComment => {
+        res.status(201).json(newComment)
+    })
+    .catch( error => {
+        console.log('new comment added', error)
+        res.status(500).json({ message: 'could not add comment'})
+    })
+});
 
-function findByUserId(id) {
-    return db('comments')
-    .leftJoin('users', 'users.id', 'comments.id')
-    .select([ "comments.*", "user_id"])
-    .where({user_id: id})
-}
+// find comments by comment id
+router.get('/:id', authenticate, (req, res) => {
+    const { id } = req.params
+
+    Comments.findById(id)
+    .then(comment => {
+        if(!comment){
+            res.status(404).json({message: 'comment id does not exist'})
+        } else {
+        res.status(200).json(comment)
+        }
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({message: 'error finding comments'})
+    })
+})
+
+
+module.exports = router;

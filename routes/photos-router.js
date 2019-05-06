@@ -20,12 +20,13 @@ router.post('/', authenticate, (req, res) => {
     })
 });
 
+// find by photo id
 router.get('/:id', authenticate, (req, res) => {
     const { id } = req.params;
     Photos.findByUserId(id)
     .then(getPhoto => {
         if(!getPhoto) {
-            res.status(404).json({message: 'this user has no photos'})
+            res.status(404).json({message: 'photo id does not exist'})
         }
         res.status(200).json(getPhoto)
     })
