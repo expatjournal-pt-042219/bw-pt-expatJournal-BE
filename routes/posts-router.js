@@ -17,7 +17,7 @@ router.post('/', authenticate, (req, res) => {
         console.log("new post error", error)
         res.status(500).json({ message: 'Could not post a new post'})
     })
-})
+});
 
 // search posts by user id
 router.get('/:id', authenticate, (req, res) => {
