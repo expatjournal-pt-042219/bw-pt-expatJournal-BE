@@ -12,8 +12,6 @@ exports.up = function(knex, Promise) {
 
       photos.timestamps(true, true);
 
-    //   photos.string('created_at', 128);
-
       photos.integer('likes').defaultTo(0);
 
       photos.string('title', 128)

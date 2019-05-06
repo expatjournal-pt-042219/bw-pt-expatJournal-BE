@@ -3,9 +3,10 @@ const db = require('../database/dbConfig')
 
 module.exports = {
     findAllPhotosByUser,
-    findById,
     findByPhoto,
+    findById,
     findByUserId,
+    findByPhotoId,
     addPhoto,
     deletePhoto,
     updatePhoto
@@ -15,19 +16,35 @@ function findAllPhotosByUser(id){
     return db('photos').where({'user_id': id});
 }
 
+function findByPhoto (filter) {
+    return db('photos').where(filter)
+}
+
+
 function findById(id) {
     return db('photos')
     .where({ id })
     .first();
 }
 
-function findByPhoto (filter) {
-    return db('photos').where(filter)
-}
+// function findByUserId(id) {
+//     return db('photos')
+//     .leftJoin('users', 'user_id', 'photos.id')
+//     .where('photos.id', id)
+//     .first();
+// }
 
 function findByUserId(id) {
     return db('photos')
-    .leftJoin('users', 'users.user_id', 'photos.photos.id')
+    .leftJoin('users', 'users.id', 'photos.id')
+    .select([ "photos.*", "user_id"])
+    .where({user_id: id})
+}
+
+function findByPhotoId(id) {
+    return db('photos')
+    .leftJoin('users', 'users.id', 'photos.id')
+    .select([ "photos.*", 'user_id' ])
     .where('photos.id', id)
     .first();
 }
@@ -45,3 +62,4 @@ async function updatePhoto(id, changes) {
      await db('photos').where({ id }).update(changes)
      return db('photos').where({ id }).first()
 }
+
