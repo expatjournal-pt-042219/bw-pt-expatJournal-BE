@@ -79,4 +79,28 @@ a `DELETE` request to this route will delete the post with the specified id.
 
 ## User Photos related endpoints
 
+a `GET` request to this route will return a single photo by user id
 
+### https://expat-lambda.herokuapp.com/api/user/photos/:id
+
+a `POST` request to this route with the title, description and photo url will create a new photo. The response from the server will be like the above example of a user photo. 
+
+### https://expat-lambda.herokuapp.com/api/photos
+
+a `PUT` request to this route with the title, text and photo url in the req body will edit the photo with the specified photo id. The response from the server will display the updated title and description along with the photo information.
+
+### https://expat-lambda.herokuapp.com/api/photos/:id
+
+a `DELETE` request to this route will delete the photo with the specified id.
+
+### https://expat-lambda.herokuapp.com/api/photos/:id
+
+## Comments related endpoints
+
+a `GET` request to this route will return a single comment by the comment id
+
+### https://expat-lambda.herokuapp.com/api/comments/:id
+
+a `POST` request to this route will add a new comment to either a photo or post that exists. 
+
+### https://expat-lambda.herokuapp.com/api/comments
