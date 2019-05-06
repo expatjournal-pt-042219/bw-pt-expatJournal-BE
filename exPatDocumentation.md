@@ -36,7 +36,7 @@
         "likes": 0,
         "title": "This is the title",
         "description": "This is the description"
-        "photo_url": "photo"
+        "photo_url": "www.photoexPat.com/photo"
   }
 ```
 ## Registration and Login
@@ -76,3 +76,7 @@ a `PUT` request to this route with the title and text in the req body will edit 
 a `DELETE` request to this route will delete the post with the specified id.
 
 ### https://expat-lambda.herokuapp.com/api/posts/:id
+
+## User Photos related endpoints
+
+
