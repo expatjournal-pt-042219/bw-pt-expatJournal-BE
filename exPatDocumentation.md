@@ -29,14 +29,14 @@
 
 ```js
   {
-        "id": 7,
-        "user_id": 20,
-        "created_at": "2019-05-02T02:14:55.454Z",
-        "updated_at": "2019-05-02T02:14:55.454Z",
-        "likes": 0,
-        "title": "This is the title",
-        "description": "This is the description"
-        "photo_url": "www.photoexPat.com/photo"
+    "id": 1,
+    "user_id": 4,
+    "created_at": "2019-05-06 23:26:41",
+    "updated_at": "2019-05-06 23:26:41",
+    "likes": 0,
+    "title": "my favorite pic",
+    "description": "A photo from Paris, France",
+    "photo_url": "www.expatPhoto.com/newPhoto"
   }
 ```
 
