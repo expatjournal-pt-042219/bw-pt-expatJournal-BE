@@ -52,6 +52,18 @@
         "post_id": 1,
         "photo_id": null
     }
+    
+   or
+   
+   {
+    "id": 5,
+    "created_at": "2019-05-06 23:30:11",
+    "updated_at": "2019-05-06 23:30:11",
+    "comment": "This was a nice picture from Paris!",
+    "user_id": 4,
+    "post_id": null,
+    "photo_id": 1
+}
  ``` 
  
 ## Registration and Login
