@@ -1,8 +1,8 @@
 ## Expat API
 
-- A server that will deliver users, user posts, and user photos can be found [here](https://expat-lambda.herokuapp.com):
+- A server that will deliver users, user posts, user photos, and user comments can be found [here](https://expat-lambda.herokuapp.com):
 
-- A user has this basic format:
+- A user login credentials has this basic format:
 
 ```js
   {
@@ -11,7 +11,7 @@
   }
 ```
 
-- A post has this basic format:
+- A user post has this basic format:
 
 ```js
   {
@@ -25,7 +25,7 @@
   }
 ```
 
-- A photo has this basic format:
+- A user photo has this basic format:
 
 ```js
   {
@@ -66,9 +66,20 @@
 }
  ``` 
  
+ ## Running the Project
+
+- Fork and Clone this project.
+- `cd` into your project folder.
+- Run `npm install` or `yarn` to download the dependencies.
+- Add `knex` and `sqlite3` npm modules.
+- Configure `knex` to connect to `/database/expatJournal.sqlite3` using the `sqlite3` module.
+- To start the API server, run `yarn start` or `npm start`.
+- Use _Postman_ to test the API.
+- server runs on localhost 7777 (http://localhost:7777)
+ 
 ## Registration and Login
 
-- To register a user on the app, you need to make a `POST` request to this route, which will return the username and password.
+- To register a user on the app, you need to make a `POST` request to this route, which will return the username and password, as well as a token and welcome message.
 
 ### https://expat-lambda.herokuapp.com/api/register
 
