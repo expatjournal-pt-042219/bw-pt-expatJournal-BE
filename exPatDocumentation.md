@@ -4,7 +4,7 @@
 
 - A user login credentials has this basic format:
 
-```js
+```json
   {
       "username": "username",
       "password": "password",
@@ -13,7 +13,7 @@
 
 - A user post has this basic format:
 
-```js
+```json
   {
         "id": 6,
         "user_id": 28,
@@ -27,7 +27,7 @@
 
 - A user photo has this basic format:
 
-```js
+```json
   {
     "id": 1,
     "user_id": 4,
@@ -42,7 +42,7 @@
 
 - A comment for a post or photo has this basic format: 
 
-```js
+```json
 {
         "id": 3,
         "created_at": "2019-05-06 01:19:49",
